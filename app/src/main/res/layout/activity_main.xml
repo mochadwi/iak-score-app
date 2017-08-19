@@ -17,7 +17,8 @@
         android:id="@+id/edt_tim1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Masukkan nama Tim 1" />
+        android:hint="Masukkan nama Tim 1"
+        android:inputType="text" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,7 +29,8 @@
         android:id="@+id/edt_tim2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Masukkan nama Tim  2" />
+        android:hint="Masukkan nama Tim  2"
+        android:inputType="text" />
 
     <Button
         android:id="@+id/btn_go"

@@ -1,5 +1,6 @@
 package io.mochadwi.scoreapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -19,6 +20,8 @@ public class ScoreboardActivity extends AppCompatActivity {
     private Button btnThreeScoreTim2;
 
     // Data
+    private String namaTim1;
+    private String namaTim2;
     private int scoreTim1 = 0;
     private int scoreTim2 = 0;
 
@@ -26,14 +29,15 @@ public class ScoreboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scoreboard);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         initView();
     }
 
     private void initView() {
         // Get data from intent
-        String namaTim1 = getIntent().getStringExtra("tim_1");
-        String namaTim2 = getIntent().getStringExtra("tim_2");
+        namaTim1 = getIntent().getStringExtra("tim_1");
+        namaTim2 = getIntent().getStringExtra("tim_2");
 
         tvNameTim1 = (TextView) findViewById(R.id.tim_satu);
         tvNameTim2 = (TextView) findViewById(R.id.tim_dua);
@@ -76,5 +80,17 @@ public class ScoreboardActivity extends AppCompatActivity {
 
         tvScoreTim1.setText(String.valueOf(scoreTim2));
         tvScoreTim2.setText(String.valueOf(scoreTim2));
+    }
+
+    public void result(View view) {
+        Intent i = new Intent(getApplicationContext(), ResultActivity.class);
+
+        if (scoreTim1 > scoreTim2) {
+            i.putExtra("winner", namaTim1);
+        } else if (scoreTim2 > scoreTim1) {
+            i.putExtra("winner", namaTim2);
+        }
+
+        startActivity(i);
     }
 }

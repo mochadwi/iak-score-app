@@ -111,7 +111,7 @@
         android:background="@color/colorPrimary">
 
         <Button
-            android:onClick="reset"
+            android:onClick="result"
             android:id="@+id/btn_selesai_game"
             android:layout_width="180dp"
             android:layout_height="55dp"
